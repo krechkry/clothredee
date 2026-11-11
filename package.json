@@ -6,7 +6,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "build:single": "vite build --mode single",
-    "build:artifact": "vite build --mode single && node scripts/artifact.mjs"
+    "build:artifact": "vite build --mode single && node scripts/artifact.mjs",
+    "check:sim": "tsx scripts/simcheck.ts"
   },
   "dependencies": {
     "delaunator": "^5.1.0",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@types/delaunator": "^5.0.3",
     "@types/three": "^0.187.0",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2",
     "vite": "^8.3.8",
     "vite-plugin-singlefile": "^2.3.4"
