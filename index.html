@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clothredee</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap">
+</head>
+<body>
+<div id="app">
+  <header class="bar">
+    <div class="brand"><span class="mark" aria-hidden="true"></span><span>Clothredee</span></div>
+    <input id="project-name" class="name-input" aria-label="Project name" spellcheck="false">
+    <div class="bar-group">
+      <select id="template-select" aria-label="New from template"></select>
+      <button id="btn-open" type="button">Open</button>
+      <button id="btn-save" type="button">Save</button>
+      <button id="btn-obj" type="button" title="Export the current drape as OBJ (meters)">OBJ</button>
+      <button id="btn-glb" type="button" title="Export the current drape as GLB (meters)">GLB</button>
+    </div>
+    <div class="bar-group">
+      <button id="btn-undo" type="button" title="Undo (Ctrl+Z)" aria-label="Undo">↶</button>
+      <button id="btn-redo" type="button" title="Redo (Ctrl+Shift+Z)" aria-label="Redo">↷</button>
+    </div>
+    <div class="bar-group sim-controls">
+      <button id="btn-sim" type="button" class="primary" title="Simulate (Space)">Simulate</button>
+      <button id="btn-reset" type="button" title="Back to the arranged pose">Reset</button>
+    </div>
+    <div id="stats" class="stats"></div>
+  </header>
+  <main class="work">
+    <section class="pane pane-3d" aria-label="3D window">
+      <div class="pane-head"><span>3D</span>
+        <label class="check"><input type="checkbox" id="show-seams" checked> Seam lines</label>
+        <button id="btn-frame3d" type="button" class="ghost">Frame</button>
+      </div>
+      <div id="view3d" class="pane-body"></div>
+    </section>
+    <section class="pane pane-2d" aria-label="2D pattern window">
+      <div class="pane-head"><span>2D pattern</span>
+        <div class="tools" id="tools" role="toolbar" aria-label="Pattern tools">
+          <button type="button" data-tool="select" title="Select / edit (V)">Select</button>
+          <button type="button" data-tool="rect" title="Rectangle (R)">Rect</button>
+          <button type="button" data-tool="poly" title="Polygon (P)">Polygon</button>
+          <button type="button" data-tool="point" title="Add point on edge (A)">+ Point</button>
+          <button type="button" data-tool="sew" title="Sew two edges (S)">Sew</button>
+        </div>
+        <button id="btn-fit2d" type="button" class="ghost">Fit</button>
+      </div>
+      <div id="view2d" class="pane-body"></div>
+      <div id="hint" class="hint"></div>
+    </section>
+    <aside id="panel" class="panel" aria-label="Properties"></aside>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
